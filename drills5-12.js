@@ -126,4 +126,71 @@ const products2 = (array) => {
   return outArr;
 };
 
-console.log(products2([1, 3, 9, 4]));
+// console.log(products2([1, 3, 9, 4]));
+
+// 11. 2D array
+// Write an algorithm which searches through a 2D array, and whenever it finds a 0 should set the entire row and column to 0.
+
+// 2D array
+const input2D = [
+  [1, 0, 1, 1, 0],
+  [0, 1, 1, 1, 0],
+  [1, 1, 1, 1, 1],
+  [1, 0, 1, 1, 1],
+  [1, 1, 1, 1, 1],
+];
+
+// I MISREAD THIS AND THIS ONE ONLY REPLACES THE ROW NOT THE ROW AND THE COLUMN - FIX THIS LATER
+const array2DFun = (arr2d) => {
+  out2dArr = [];
+  arr2d.forEach((row) => {
+    console.log("here is a row:", row);
+    // see if there is a 0
+    if (row.indexOf(0) >= 0) {
+      // set all the values to 0
+      let newRow = new Array(row.length).fill(0);
+      // push the row to the out2Arr
+      out2dArr.push(newRow);
+    }
+    // if not, just push the row to the output
+    out2dArr.push(row);
+  });
+  return out2dArr;
+};
+
+// let arr1d = [1, 1, 0, 1, 1, 0];
+// const array2DFun = (arr2d) => {
+//   let outArr = [];
+//   // Loop over the rows - within each of these arrays looks for 0, if found, replace all values with 0
+//   const replace0 = (arr) => {
+//     console.log(arr, "replace 0");
+//     return arr.map((thing) => 0);
+//   };
+//   arr2d.forEach((row) => {
+//     console.log(row, "input row");
+//     row.forEach((item) => {
+//       //   console.log(item);
+//       if (item === 0) {
+//         //this returns a new row of 0s
+//         outArr.push(replace0(row));
+//       }
+
+//     });
+//   });
+//   return outArr;
+// };
+
+// console.log(array2DFun(input2D));
+
+// 12. String rotation
+// Given 2 strings, str1 and str2, write a program that checks if str2 is a rotation of str1.
+const stringRotation = (leftString, rightString) => {
+  let rotatedRight = "";
+  for (let i = rightString.length - 1; i >= 0; i--) {
+    //reverse the string
+    rotatedRight += rightString[i];
+  }
+  return rotatedRight === leftString;
+};
+
+console.log(stringRotation("cat", "tac"));
